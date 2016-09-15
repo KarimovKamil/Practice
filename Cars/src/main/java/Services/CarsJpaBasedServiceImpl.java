@@ -7,14 +7,13 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class CarsJpaBasedServiceImpl {
+public class CarsJpaBasedServiceImpl implements CarsJpaBasedService {
     public EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
 
-    public Car add(Car car){
+    public void add(Car car){
         em.getTransaction().begin();
         Car carFromDB = em.merge(car);
         em.getTransaction().commit();
-        return carFromDB;
     }
 
     public void delete(int id){

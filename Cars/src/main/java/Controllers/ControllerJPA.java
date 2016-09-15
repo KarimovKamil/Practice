@@ -1,6 +1,7 @@
 package Controllers;
 
 import Dao.Models.Car;
+import Services.CarsJpaBasedService;
 import Services.CarsJpaBasedServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping(value = "/jpa")
 @org.springframework.stereotype.Controller
 public class ControllerJPA {
-    private CarsJpaBasedServiceImpl carsService = new CarsJpaBasedServiceImpl();
+    private CarsJpaBasedService carsService = new CarsJpaBasedServiceImpl();
 
     @RequestMapping(value = "/")
     public String main() {
