@@ -4,6 +4,9 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
+    <title>Create</title>
+</head>
 <body>
 <form th:action="/add" method="post">
     <div><label>Mark: <input type="text" name="mark"/> </label></div>

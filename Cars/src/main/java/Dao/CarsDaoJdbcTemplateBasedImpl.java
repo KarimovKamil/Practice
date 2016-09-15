@@ -33,19 +33,19 @@ public class CarsDaoJdbcTemplateBasedImpl implements CarsDao {
     }
 
     public void updateCarOwner(int id, String owner) {
-        jdbcTemplate.execute("UPDATE cars_info SET car_owner = '" + owner + "' WHERE auto_id = " + id + ";");
+        jdbcTemplate.execute("UPDATE cars_info SET car_owner = '" + owner + "' WHERE id = " + id + ";");
     }
 
     public void updateCarNumberplate(int id, String numberplate) {
-        jdbcTemplate.execute("UPDATE cars_info SET numberplate = '" + numberplate + "' WHERE auto_id = " + id + ";");
+        jdbcTemplate.execute("UPDATE cars_info SET numberplate = '" + numberplate + "' WHERE id = " + id + ";");
     }
 
     public void deleteCar(int id) {
-        jdbcTemplate.execute("DELETE FROM cars_info WHERE auto_id = " + id + ";");
+        jdbcTemplate.execute("DELETE FROM cars_info WHERE id = " + id + ";");
     }
 
     public Car getCarInfo(int id) {
-        List<Car> car = jdbcTemplate.query("SELECT * FROM cars_info WHERE auto_id = " + id + ";", new CarMapper());
+        List<Car> car = jdbcTemplate.query("SELECT * FROM cars_info WHERE id = " + id + ";", new CarMapper());
         return car.get(0);
     }
 
