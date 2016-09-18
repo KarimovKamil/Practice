@@ -1,6 +1,6 @@
-package Services;
+package ru.itis.inform.Services;
 
-import Dao.Models.Car;
+import ru.itis.inform.Dao.Models.Car;
 
 import java.util.List;
 

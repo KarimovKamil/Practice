@@ -1,4 +1,4 @@
-package Dao.Models;
+package ru.itis.inform.Dao.Models;
 
 import javax.persistence.*;
 

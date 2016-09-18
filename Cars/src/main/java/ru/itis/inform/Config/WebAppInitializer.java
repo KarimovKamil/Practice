@@ -1,4 +1,4 @@
-package Config;
+package ru.itis.inform.Config;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

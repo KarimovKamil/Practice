@@ -1,8 +1,8 @@
-package Controllers;
+package ru.itis.inform.Controllers;
 
-import Dao.Models.Car;
-import Services.CarsJpaBasedService;
-import Services.CarsJpaBasedServiceImpl;
+import ru.itis.inform.Dao.Models.Car;
+import ru.itis.inform.Services.CarsService;
+import ru.itis.inform.Services.CarsServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,14 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RequestMapping(value = "/jpa")
 @org.springframework.stereotype.Controller
-public class ControllerJPA {
-    private CarsJpaBasedService carsService = new CarsJpaBasedServiceImpl();
+public class Controller {
+
+    private CarsService carsService = new CarsServiceImpl();
 
     @RequestMapping(value = "/")
     public String main() {
-        return "mainJPA";
+        return "main";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -29,40 +29,37 @@ public class ControllerJPA {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@RequestParam("mark") String mark, @RequestParam("releaseDate") String releaseDate) {
         Car car = new Car(mark, releaseDate);
-        carsService.add(car);
+        carsService.addCar(car);
         return "main";
     }
 
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam("id") int id) {
-        carsService.delete(id);
-        return "success";
+        carsService.deleteCar(id);
+        return "main";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public ModelAndView update() {
-        return new ModelAndView("updating");
+    @RequestMapping(value = "/changeOwner")
+    public String changeOwner(@RequestParam("id") int id, @RequestParam("owner") String owner) {
+        carsService.buyCar(id, owner);
+        return "main";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(@RequestParam("id") int id,
-                         @RequestParam("mark") String mark,
-                         @RequestParam("numberplate") String numberplate,
-                         @RequestParam("releaseDate") String releaseDate,
-                         @RequestParam("owner") String owner) {
-        carsService.update(new Car(id, mark, numberplate, releaseDate, owner));
+    @RequestMapping(value = "/changeNumber")
+    public String changeNumberplate(@RequestParam("id") int id, @RequestParam("numberplate") String numberplate) {
+        carsService.changeNumberplate(id, numberplate);
         return "main";
     }
 
     @RequestMapping(value = "/info")
     @ResponseBody
     public String carInfo(@RequestParam("id") int id) {
-        return carsService.get(id).toString();
+        return carsService.getCarInfo(id).toString();
     }
 
     @RequestMapping(value = "/table")
     @ResponseBody
     public List<Car> carTable() {
-        return carsService.getAll();
+        return carsService.getTable();
     }
 }

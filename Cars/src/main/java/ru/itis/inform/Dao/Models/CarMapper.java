@@ -1,4 +1,4 @@
-package Dao.Models;
+package ru.itis.inform.Dao.Models;
 
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;

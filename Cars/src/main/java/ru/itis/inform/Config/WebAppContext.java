@@ -1,4 +1,4 @@
-package Config;
+package ru.itis.inform.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,12 +12,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
-import java.net.URISyntaxException;
 import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("Controllers")
+@ComponentScan("ru.itis.inform")
 public class WebAppContext extends WebMvcConfigurerAdapter {
 
     @Override
@@ -31,7 +30,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public DataSource dataSource() throws URISyntaxException {
+    public DataSource dataSource() {
         PropertiesProvider props = new PropertiesProvider();
         Properties properties = props.getProperties();
         String username = properties.getProperty("username");
