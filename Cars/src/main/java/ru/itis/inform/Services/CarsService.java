@@ -1,20 +1,23 @@
 package ru.itis.inform.Services;
 
+import ru.itis.inform.Dao.CarsDao;
 import ru.itis.inform.Dao.Models.Car;
 
 import java.util.List;
 
 public interface CarsService {
 
-    public void addCar(Car car);
+    void setCarsDao(CarsDao carsDao);
 
-    public void buyCar(int id, String owner);
+    void addCar(Car car);
 
-    public void deleteCar(int id);
+    void changeOwner(int id, String owner);
 
-    public void changeNumberplate(int id, String numberplate);
+    void deleteCar(int id);
 
-    public Car getCarInfo(int id);
+    void changeNumberplate(int id, String numberplate);
 
-    public List<Car> getTable();
+    Car getCarInfo(int id);
+
+    List<Car> getTable();
 }

@@ -8,7 +8,6 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@Component("JpaBasedDaoImpl")
 public class JpaBasedDaoImpl implements CarsDao {
     private EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
 

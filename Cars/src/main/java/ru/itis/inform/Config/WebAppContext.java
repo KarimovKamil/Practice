@@ -52,5 +52,4 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
         resolver.setViewClass(JstlView.class);
         return resolver;
     }
-
 }
