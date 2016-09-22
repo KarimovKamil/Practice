@@ -1,17 +1,17 @@
 package ru.itis.inform.Config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesProvider {
 
-    private FileInputStream file;
+    private InputStream file;
     private Properties property = new Properties();
 
     public Properties getProperties () {
         try {
-            file = new FileInputStream("C:\\Users\\kkami\\IdeaProjects\\Cars\\src\\main\\resources\\properties\\config.properties");
+            file = getClass().getResourceAsStream("/properties/config.properties");
             property.load(file);
         } catch (IOException e) {
             System.out.println("Not found");
