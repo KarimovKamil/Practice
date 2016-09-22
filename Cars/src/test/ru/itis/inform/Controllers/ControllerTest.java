@@ -40,7 +40,7 @@ public class ControllerTest {
 
     @Test
     public void carInfo() throws Exception {
-        mvc.perform(get("/info/{id}", CAR_1.getId()).contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/info?id=1", CAR_1.getId()).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(CAR_1.toString()));
     }

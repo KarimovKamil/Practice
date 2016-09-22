@@ -22,7 +22,7 @@ public class CarsServiceImpl implements CarsService {
 
     public void addCar(Car car) {
         carsDao.addCar(car);
-        log.info("Added new car with mark & release date: " + car.getMark() + " " + car.getReleaseDate());
+        log.info("Added new car with mark = {} & release date = {}", car.getMark(), car.getReleaseDate());
     }
 
     public void changeOwner(int id, String newOwner) {

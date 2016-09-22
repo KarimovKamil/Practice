@@ -1,5 +1,6 @@
 package ru.itis.inform.Dao;
 
+import org.springframework.stereotype.Component;
 import ru.itis.inform.Config.WebAppContext;
 import ru.itis.inform.Dao.Models.Car;
 import ru.itis.inform.Dao.Models.CarMapper;
@@ -7,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
+@Component
 public class JdbcTemplateDaoImpl implements CarsDao {
     private WebAppContext webAppContext = new WebAppContext();
     private JdbcTemplate jdbcTemplate = new JdbcTemplate(webAppContext.dataSource());
